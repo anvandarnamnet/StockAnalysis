@@ -18,7 +18,9 @@ app.get('/api',function(request,response){
   var startDate = request.query.date;
   var stockName = request.query.stockname;
   returnString = processor.remove_info(stockName, startDate);
-  response.send(returnString);
+  returnString.then(function(returnedStuff){
+        response.send(returnedStuff);
+  });
 });
 
 app.listen(app.get('port'), function() {
