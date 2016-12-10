@@ -13,6 +13,14 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
+app.get('/api',function(request,response){
+  var startDate = request.query.date;
+  var stockName = request.query.stockname;
+  console.log(startDate + " " + stockName);
+// do something with the data
+  response.send("HELLO");
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
