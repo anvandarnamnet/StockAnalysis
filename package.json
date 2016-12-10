@@ -12,6 +12,7 @@
   "dependencies": {
     "ejs": "2.4.1",
     "express": "4.13.3",
+    "request": "^2.79.0",
     "timeedit-api": "^1.1.2"
   },
   "repository": {

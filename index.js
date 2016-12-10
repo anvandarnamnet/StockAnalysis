@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var schema = require(__dirname + '/Schema');
 app.set('port', (process.env.PORT || 5000));
+var processor = require(__dirname + "/processor");
 
 app.use(express.static(__dirname + '/public'));
 
@@ -16,9 +17,8 @@ app.get('/', function(request, response) {
 app.get('/api',function(request,response){
   var startDate = request.query.date;
   var stockName = request.query.stockname;
-  console.log(startDate + " " + stockName);
-// do something with the data
-  response.send("HELLO");
+  returnString = processor.remove_info(stockName, startDate);
+  response.send(returnString);
 });
 
 app.listen(app.get('port'), function() {
